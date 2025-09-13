@@ -11,7 +11,7 @@ SELECT
     i,
     (ARRAY['pending', 'shipped', 'cancelled'])[FLOOR(RANDOM() * 3 + 1)],
     CURRENT_DATE - (RANDOM() * INTERVAL '90 days')
-FROM generate_series(1, 10000000) AS s(i)
+FROM generate_series(1, 10000000) AS s(i);
 
 INSERT INTO order_product (order_id, product_id, quantity)
 SELECT 
