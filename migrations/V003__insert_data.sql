@@ -5,7 +5,6 @@ INSERT INTO product (id, name, picture_url, price) VALUES
 (4, 'Нюренбергская', 'https://res.cloudinary.com/sugrobov/image/upload/v1623323635/repos/sausages/3.jpg', 315),
 (5, 'Мюнхенская', 'https://res.cloudinary.com/sugrobov/image/upload/v1623323635/repos/sausages/4.jpg', 330),
 (6, 'Русская', 'https://res.cloudinary.com/sugrobov/image/upload/v1623323635/repos/sausages/5.jpg', 189)
-ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO orders (id, status, date_created) VALUES
 (1, 'cancelled', '2025-08-21'),
@@ -15,7 +14,6 @@ INSERT INTO orders (id, status, date_created) VALUES
 (5, 'shipped', '2025-08-25'),
 (6, 'shipped', '2025-08-26'),
 (7, 'shipped', '2025-08-27')
-ON CONFLICT (id) DO NOTHING;
 
 INSERT INTO order_product (order_id, product_id, quantity) VALUES
 (1, 4, 33),
