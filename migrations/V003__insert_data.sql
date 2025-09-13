@@ -1,3 +1,4 @@
+-- Вставляем данные о продуктах
 INSERT INTO product (id, name, picture_url, price) VALUES
 (1, 'Сливочная', 'https://res.cloudinary.com/sugrobov/image/upload/v1623323635/repos/sausages/6.jpg', 320),
 (2, 'Особая', 'https://res.cloudinary.com/sugrobov/image/upload/v1623323635/repos/sausages/1.jpg', 179),
@@ -6,6 +7,8 @@ INSERT INTO product (id, name, picture_url, price) VALUES
 (5, 'Мюнхенская', 'https://res.cloudinary.com/sugrobov/image/upload/v1623323635/repos/sausages/4.jpg', 330),
 (6, 'Русская', 'https://res.cloudinary.com/sugrobov/image/upload/v1623323635/repos/sausages/5.jpg', 189);
 
+
+-- Генерируем 10 млн заказов
 INSERT INTO orders (id, status, date_created)
 SELECT 
     i,
@@ -13,6 +16,7 @@ SELECT
     CURRENT_DATE - (RANDOM() * INTERVAL '90 days')
 FROM generate_series(1, 10000000) AS s(i);
 
+-- Генерируем 10 млн позиций заказов
 INSERT INTO order_product (order_id, product_id, quantity)
 SELECT 
     i,
