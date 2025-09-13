@@ -77,13 +77,20 @@ jobs:
           -U ${{ secrets.DB_USER }} \
           -d ${{ secrets.DB_NAME }} \
           -c "
-            SELECT o.date_created, SUM(op.quantity) AS total_quantity
-            FROM orders AS o
-            JOIN order_product AS op ON o.id = op.order_id
-            WHERE o.status = 'shipped'
-              AND o.date_created >= CURRENT_DATE - INTERVAL '7 days'
-            GROUP BY o.date_created
-            ORDER BY o.date_created;
+            SELECT 
+                o.date_created, 
+                SUM(op.quantity) AS total_quantity
+            FROM 
+                orders AS o
+                JOIN order_product AS op ON o.id = op.order_id
+            WHERE 
+                o.status = 'shipped'
+                AND o.date_created >= CURRENT_DATE - INTERVAL '7 days'
+                AND o.date_created < CURRENT_DATE
+            GROUP BY 
+                o.date_created
+            ORDER BY 
+                o.date_created;
           "
 
     
