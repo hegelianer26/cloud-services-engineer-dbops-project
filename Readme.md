@@ -3,7 +3,7 @@
 
 
 -- Создание пользователя
-CREATE USER store_user WITH PASSWORD 'secure_password';
+CREATE USER store_user WITH PASSWORD 'store_password';
 
 -- Выдача прав на подключение к базе данных
 GRANT CONNECT ON DATABASE store TO store_user;
