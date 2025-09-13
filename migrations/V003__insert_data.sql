@@ -26,4 +26,3 @@ INSERT INTO order_product (order_id, product_id, quantity) VALUES
 (5, 6, 25),
 (6, 1, 12),
 (7, 4, 18)
-ON CONFLICT (order_id, product_id) DO NOTHING;
